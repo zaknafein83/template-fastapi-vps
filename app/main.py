@@ -2,6 +2,7 @@ import os
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import PlainTextResponse
 
 app = FastAPI(title="myapp", version="1.0.0")
 
@@ -16,7 +17,7 @@ app.add_middleware(
 )
 
 
-@app.get("/hello", response_class=None)
+@app.get("/hello", response_class=PlainTextResponse)
 def hello() -> str:
     return "Hello from myapp"
 
